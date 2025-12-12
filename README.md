@@ -31,8 +31,7 @@ The Python file already imports everything needed.
 
 **Databases Required:**
 - **Neo4j Desktop or AuraDB** (local installation recommended)
-- **Redis-Stack Server** (NOT plain Redis)
-- **RedisInsight** (optional, for visualization)
+- **Redis-Stack Server**
 
 ---
 
@@ -46,7 +45,7 @@ Required configuration:
 - Enable the Bolt server (default bolt://localhost:7687)
 - Set a password for the `neo4j` user  
 - Place your CSV files inside the `import/` directory  
-- Update memory settings as needed for large imports (as you did)
+- Update memory settings as needed for large imports
 
 ### Step 2 — Install Redis-Stack
 Redis-Stack is required because the project uses **RediSearch**.
@@ -57,3 +56,5 @@ https://redis.io/docs/latest/operate/oss_and_stack/install/install-stack/
 Start Redis-Stack server:
 ```bash
 redis-stack-server
+
+### Step 3
