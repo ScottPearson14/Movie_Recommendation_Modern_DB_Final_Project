@@ -87,37 +87,23 @@ The program will:
 
 ### 4. Program Usage Guide (User Manual):
 After launching the program, the user sees the main menu:
+
 Main Menu Options
-
-Load movies into Redis
-
-Extracts movies from Neo4j
-
-Stores each movie as a Redis hash using movie:<movieID>
-
-Rebuilds the RediSearch index
-
-Search movies (full-text search)
-
-Uses RediSearch to query titles, genres, and year
-
-Returns matching movie metadata
-
-Get recommendations (with Redis cache)
-
-Computes user-based collaborative filtering recommendations
-
-Key format: recs:user:<userId>:k:<k>
-
-Cached results returned instantly
-
-Cache automatically refreshes if parameters change
-
-View all cached recommendation keys
-
-Lists Redis keys matching recs:user:*:k:*
-
-User Application Mode
+1. Load movies into Redis
+   - Extracts movies from Neo4j
+   - Stores each movie as a Redis hash using movie:<movieID>
+   Rebuilds the RediSearch index
+2. Search movies (full-text search)
+   - Uses RediSearch to query titles, genres, and year
+   - Returns matching movie metadata
+3. Get recommendations (with Redis cache)
+   - Computes user-based collaborative filtering recommendations
+   - Key format: *recs:user:<userId>:k:<k>*
+   - Cached results returned instantly
+   - Cache automatically refreshes if parameters change
+4. View all cached recommendation keys
+   - Lists Redis keys matching *recs:user:*:k:**
+5 User Application Mode
 Provides a multi-feature user experience:
 
 Create a new user profile
