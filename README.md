@@ -30,7 +30,7 @@ This README explains exactly how to install dependencies, configure databases, a
 The Python file already imports everything needed.
 
 **Databases Required:**
-- **Neo4j Desktop or AuraDB** (local installation recommended)
+- **Neo4j Desktop**
 - **Redis-Stack Server**
 
 ---
@@ -71,8 +71,9 @@ You must start Redis-Stack and Neo4j before running the Python script.
 redis-stack-server
 ```
 - Terminal 2:
+```
 Start Neo4j Desktop → Start your database that has the CSV file imported
-
+```
 ### Step 2 — Run the Python Program
 First, update your Neo4j and Redis connection parameters to matach your databasae information (make sure your password for Neo4j is correct)
 From VS Code or terminal:
@@ -103,7 +104,7 @@ Main Menu Options
    - Cache automatically refreshes if parameters change
 4. View all cached recommendation keys
    - Lists Redis keys matching recs:user:*:k:*
-5 User Application Mode
+5. User Application Mode
    - Provides a multi-feature user experience:
         - Create a new user profile
         - Log in to an existing profile
