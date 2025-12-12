@@ -27,7 +27,7 @@ This README explains exactly how to install dependencies, configure databases, a
 - `json`
 - `typing`
 
-Your Python file already imports everything needed.
+The Python file already imports everything needed.
 
 **Databases Required:**
 - **Neo4j Desktop or AuraDB** (local installation recommended)
