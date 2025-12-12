@@ -98,126 +98,83 @@ Main Menu Options
    - Returns matching movie metadata
 3. Get recommendations (with Redis cache)
    - Computes user-based collaborative filtering recommendations
-   - Key format: *recs:user:<userId>:k:<k>*
+   - Key format: recs:user:<userId>:k:<k>
    - Cached results returned instantly
    - Cache automatically refreshes if parameters change
 4. View all cached recommendation keys
-   - Lists Redis keys matching *recs:user:*:k:**
+   - Lists Redis keys matching recs:user:*:k:*
 5 User Application Mode
-Provides a multi-feature user experience:
-
-Create a new user profile
-
-Log in to an existing profile
-
-Search movies (with personalized rating info)
-
-Rate movies
-
-Retrieve Top-5 recommended unseen movies
-
-Automatically updates:
-
-Movie avgRating
-
-User rating history
-
-Redis cache and hashes
-
-All changes persist across operations
-
-Exit the application
-
-Safely closes Redis and Neo4j connections
+   - Provides a multi-feature user experience:
+        - Create a new user profile
+        - Log in to an existing profile
+        - Search movies (with personalized rating info)
+        - Rate movies
+        - Retrieve Top-5 recommended unseen movies
+        - Automatically updates:
+             - Movie avgRating
+             - User rating history
+             - Redis cache and hashes
+        - All changes persist across operations
+6. Exit the application
+   - Safely closes Redis and Neo4j connections
 
 ### 5. Demonstration Workflow (What the Grader Should Do): 
 To reproduce all results shown in the report:
-
-Start Neo4j and Redis-Stack
-
-Run the Python script
-
-From the menu:
-
-Run Option 1 to load movies
-
-Run Option 2 (search) to verify RediSearch is working
-
-Run Option 3 twice with the same userId and k to show cache hit
-
-Run Option 4 to display the cached keys
-
-Run Option 5:
-
-Create a new user
-
-Search for movies
-
-Rate a movie
-
-Request new Top-5 recommendations (they will change based on new ratings)
-
-Exit using Option 0
-
+1. Start Neo4j and Redis-Stack
+2. Run the Python script
+3. From the menu:
+   - Run Option 1 to load movies
+   - Run Option 2 (search) to verify RediSearch is working
+   - Run Option 3 twice with the same userId and k to show cache hit
+   - Run Option 4 to display the cached keys
+   - Run Option 5:
+        - Create a new user
+        - Search for movies
+        - Rate a movie
+        - Request new Top-5 recommendations (they will change based on new ratings)
+4. Exit using Option 0
 This confirms:
-
-Graph-based recommendation logic works
-
-Redis caching works
-
-Full text search works
-
-User profile + rating persistence works
-
-All updated values appear correctly in Redis
+- Graph-based recommendation logic works
+- Redis caching works
+- Full text search works
+- User profile + rating persistence works
+- All updated values appear correctly in Redis
 
 ### 6. Notes for Reproducibility:
-The program will not run unless both Neo4j and Redis-Stack are active.
-
-Ensure the Neo4j credentials inside the script match your installation.
-
-CSV import into Neo4j must be completed before running the Python script.
-
-If RediSearch index already exists, the script handles it safely.
+- The program will not run unless both Neo4j and Redis-Stack are active.
+- Ensure the Neo4j credentials inside the script match your installation.
+- CSV import into Neo4j must be completed before running the Python script.
+- If RediSearch index already exists, the script handles it safely.
 
 ### 7. File Summary:
+```
 redis_movie_integration_complete.py
-
+```
 The main executable script containing:
-
-Neo4j integration
-
-Redis caching and full-text search
-
-Collaborative filtering recommendation logic
-
-User-profile and rating management
-
-Menu-driven CLI application
-
-project_mdb.docx
-
-Your full written report documenting:
-
-Data model
-
-Recommendation strategy
-
-Redis integration
-
-User application features
-
-Screenshots and verification steps
+- Neo4j integration
+- Redis caching and full-text search
+- Collaborative filtering recommendation logic
+- User-profile and rating management
+- Menu-driven CLI application
+```
+project_mdb.pdf
+```
+My full written report documenting:
+- Data model
+- Recommendation strategy
+- Redis integration
+- User application features
+- Screenshots and verification steps
 
 ### 8. Support & Troubleshooting:
 If the script prints connection errors:
-
-Verify Redis-Stack is running on port 6379
-
-Verify Neo4j Bolt port is 7687
-
-Update credentials inside the script as necessary
-
-Delete stale RediSearch indexes using:
-
+- Verify Redis-Stack is running on port 6379
+- Verify Neo4j Bolt port is 7687
+- Update credentials inside the script as necessary
+- Delete stale RediSearch indexes using:
+```
 FT.DROPINDEX id:movie KEEPDOCS
+```
+
+### End of README
+- By following the steps in this file, one will be capable of installing, running, verifying, and reproducing the entire project functionality
